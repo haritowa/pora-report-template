@@ -1,11 +1,17 @@
 class ImageSplitComponent extends HTMLElement {
     constructor() {
         super();
+        console.log('[ImageSplit] Constructor called');
         
         // Create template programmatically
         const template = document.createElement('template');
+        
+        // Determine CSS path based on attribute
+        const cssPath = this.getAttribute('external-css');
+        console.log('[ImageSplit] Constructor, external-css attribute:', cssPath);
+        
         template.innerHTML = `
-            <link rel="stylesheet" href="../css/image-split.css">
+            <link rel="stylesheet" href="${cssPath || '../css/image-split.css'}">
             <div class="image-split-container">
                 <img class="background-blur" alt="Blur Background">
                 <div class="image-container" data-side="left">
@@ -42,6 +48,7 @@ class ImageSplitComponent extends HTMLElement {
     }
 
     connectedCallback() {
+        console.log('[ImageSplit] Connected, external-css:', this.getAttribute('external-css'));
         this.container.classList.add('loading');
 
         const loadImage = (img) => {

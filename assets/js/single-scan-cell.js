@@ -1,9 +1,11 @@
 class SingleScanCell extends HTMLElement {
     constructor() {
         super();
+        console.log('[SingleScanCell] Constructor called');
     }
 
     connectedCallback() {
+        console.log('[SingleScanCell] Connected, external-css:', this.getAttribute('external-css'));
         this.render();
 
         // Add intersection observer to trigger animation when element becomes visible
@@ -48,6 +50,9 @@ class SingleScanCell extends HTMLElement {
     }
 
     render() {
+        const externalCss = this.getAttribute('external-css');
+        console.log('[SingleScanCell] Render, external-css:', externalCss);
+        
         const title = this.getAttribute('title') || '';
         const brand = this.getAttribute('brand') || '';
         const leftImage = this.getAttribute('left-image') || '';
@@ -73,6 +78,7 @@ class SingleScanCell extends HTMLElement {
                 <div class="grid">
                     <div class="cell-image">
                         <image-split 
+                            external-css="${externalCss}"
                             left-image="${leftImage}"
                             right-image="${rightImage}"
                             left-alt="Original Image"
@@ -89,6 +95,8 @@ class SingleScanCell extends HTMLElement {
                 </div>
             </article>
         `;
+        
+        console.log('[SingleScanCell] After render, image-split element:', this.querySelector('image-split'));
     }
 }
 
