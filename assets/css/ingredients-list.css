@@ -1,0 +1,64 @@
+.ingredients-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.badge {
+    padding: 6px 12px;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 0.2px;
+}
+
+/* Override Pico's tooltip underline */
+[data-tooltip].badge,
+[data-tooltip].badge:hover {
+    text-decoration: none;
+    cursor: help;
+}
+
+/* Reset Pico's border styles */
+[data-tooltip].badge-trusted {
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+[data-tooltip].badge-unverified {
+    border: 1.5px dashed rgba(200, 200, 210, 0.25);
+}
+
+.badge-trusted {
+    background: linear-gradient(
+        145deg,
+        rgba(45, 45, 45, 0.97),
+        rgba(25, 25, 25, 0.97),
+        rgba(35, 35, 35, 0.97)
+    );
+    color: rgba(255, 255, 255, 0.95);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    box-shadow: 
+        0 2px 4px rgba(0, 0, 0, 0.1),
+        0 1px 2px rgba(255, 255, 255, 0.05);
+    background-size: 200% 200%;
+    animation: gradientShift 12s ease infinite;
+}
+
+.badge-unverified {
+    color: rgba(200, 200, 210, 0.45);
+    border: 1.5px dashed rgba(200, 200, 210, 0.3);
+    background-color: rgba(200, 200, 210, 0.03);
+    backdrop-filter: blur(8px);
+}
+
+@keyframes gradientShift {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}

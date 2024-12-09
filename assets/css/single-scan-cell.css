@@ -1,0 +1,19 @@
+.single-scan-cell .grid {
+    display: grid;
+    grid-template-columns: minmax(300px, 500px) 1fr;
+    gap: 2rem;
+    align-items: start;
+}
+
+.cell-image img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+@media (max-width: 1024px) {
+    .single-scan-cell .grid {
+        grid-template-columns: 1fr;
+    }
+} 

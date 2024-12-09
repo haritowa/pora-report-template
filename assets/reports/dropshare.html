@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="color-scheme" content="light dark">
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css">
+    <link rel="stylesheet" href="../css/pipeline-chart.css">
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/countup.js@2.8.0/dist/countUp.umd.js"></script>
+    <script src="../js/pipeline-chart.js" defer></script>
+
+    <link rel="stylesheet" href="../css/single-scan-cell.css">
+    <link rel="stylesheet" href="../css/image-split.css">
+    <link rel="stylesheet" href="../css/ingredients-list.css">
+
+    <script src="../js/image-split.js" defer></script>
+    <script src="../js/ingredients-list.js" defer></script>
+    <script src="../js/single-scan-cell.js" defer></script>
+    
+    <style>
+      body {
+        min-height: 100vh;
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .pipeline-chart-wrapper {
+        position: fixed;
+        width: 100%;
+      }
+
+      .pipeline-chart-wrapper.animated {
+        position: relative;
+      }
+
+      .content-wrapper {
+        display: none;
+        opacity: 0;
+      }
+    </style>
+    
+    <title>Image Recovery Report</title>
+  </head>
+  <body>
+    <div class="pipeline-chart-wrapper pipeline-container" data-items='[
+            {"name": "Not Found", "value": "618"},
+            {"name": "Skincare", "value": "550"},
+            {"name": "Identified", "value": "485"},
+            {"name": "Unique", "value": "345"},
+            {"name": "Sources", "value": "341"},
+            {"name": "Restored", "value": "240"}
+      ]'></div>
+
+    <main class="container content-wrapper">
+      <hgroup>
+        <h1>Image Recovery Report</h1>
+        <h2>Generated for 2024-12-08</h2>
+      </hgroup>
+
+      <single-scan-cell
+          title="Milk Facial Toner"
+          brand="Vilvah"
+          left-image="https://www.vilvahstore.com/cdn/shop/files/Milk-Facial-Toner_Product-page__2.jpg"
+          right-image="https://www.vilvahstore.com/cdn/shop/files/Milk-Facial-Toner_Product-page__2.jpg"
+          ingredients='[{"name":"Water","verified":true},{"name":"Butylene Glycol","verified":true},{"name":"Hydrogenated Poly(C6-14 Olefin)","verified":false}]'>
+      </single-scan-cell>
+    </main>
+  </body>
+</html> 
